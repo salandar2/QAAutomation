@@ -61,4 +61,27 @@ public class BestBuyStepDefs {
         Assert.assertTrue(orderSummaryText.contains("Product: iPhone 13"));
         Assert.assertTrue(orderSummaryText.contains("Total Price:")); // Add other verifications as necessary
     }
+
+    @And("I click on the 2nd item in the search results")
+    public void i_click_on_the_2nd_item_in_the_search_results() {
+        // Locate and click on the 2nd item (index 1 in the list)
+        List<WebElement> searchResults = driver.findElements(By.xpath("//h4[contains(text(),'iPhone 13')]"));
+        if (searchResults.size() >= 2) {
+            searchResults.get(1).click();
+        } else {
+            throw new AssertionError("Not enough search results to click on the 2nd item.");
+        }
+    }
+
+    @And("I click on the 3rd item in the search results")
+    public void i_click_on_the_3rd_item_in_the_search_results() {
+        // Locate and click on the 3rd item (index 2 in the list)
+        List<WebElement> searchResults = driver.findElements(By.xpath("//h4[contains(text(),'iPhone 13')]"));
+        if (searchResults.size() >= 3) {
+            searchResults.get(2).click();
+        } else {
+            throw new AssertionError("Not enough search results to click on the 3rd item.");
+        }
+    }
+
 }
